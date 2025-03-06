@@ -23,7 +23,7 @@ body {
     border-radius: 10px;
     overflow: hidden;
     margin: 20px auto; /* Ajoute de l'espace autour */
-    padding: 20px; /* Évite que le contenu soit collé aux bords */
+    padding-right: 20px; /* Évite que le contenu soit collé aux bords */
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
