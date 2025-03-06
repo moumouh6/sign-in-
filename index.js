@@ -7,6 +7,16 @@ const togglePassword = document.querySelector(".toggle-password");
         });
     }
 
+    const passwordInput2 = document.getElementById("confirmer-password");
+    const togglePassword2 = document.querySelector(".toggle-password1");
+    if (togglePassword2) {
+        togglePassword2.addEventListener("click", function () {
+            passwordInput2.type = passwordInput2.type === "password" ? "text" : "password";
+        });
+    }
+
+    
+
     // Redirection si on clique sur un bouton spécifique
     const redirectButton = document.querySelector(".btn-submit");
     if (redirectButton) {
