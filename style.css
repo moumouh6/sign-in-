@@ -25,12 +25,14 @@ body {
     margin: 20px auto; /* Ajoute de l'espace autour */
     padding-right: 20px; /* Évite que le contenu soit collé aux bords */
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    
 }
 
 /* Section gauche */
 .left-section {
     color: white;
     width: 45%;
+    background-color: #4529A7;
 }
 
 .doctor-image {
@@ -198,6 +200,23 @@ input {
     }
 }
 
+@media  (max-height: 800px) {
+    body {
+        overflow-y: auto; /* Active le scroll vertical uniquement si nécessaire */
+        height: auto; /* Permet au body de s'étendre si besoin */
+    }
+
+    .container {
+        min-height: 100vh; /* Minimum : toute la hauteur de l'écran */
+        height: auto; /* Permet au container de s'étendre si besoin */
+        overflow: visible; /* Ne cache pas ce qui dépasse */
+    }
+
+    .signup-form {
+        height: auto; /* Laisse le formulaire s’étendre */
+        max-height: none; /* Supprime toute limitation de hauteur */
+    }
+}
 @media (max-width: 1024px) and (max-height: 600px) {
     body {
         overflow-y: auto; /* Active le scroll vertical uniquement si nécessaire */
