@@ -6,7 +6,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    overflow-y: auto; /* Active le défilement si nécessaire */
+    justify-content: flex-start; /* Empêche le centrage vertical forcé */
     height: 100vh;
     text-align: center;
 }
@@ -18,10 +19,11 @@ body {
     max-width: 900px;
     width: 90%;
     margin-bottom: 20px;
-    height: 90%;
     background: white;
     border-radius: 10px;
     overflow: hidden;
+    margin: 20px auto; /* Ajoute de l'espace autour */
+    padding: 20px; /* Évite que le contenu soit collé aux bords */
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
@@ -53,7 +55,7 @@ body {
 form {
     margin-left: 5px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
     align-items: start;
 }
 
@@ -86,15 +88,24 @@ input {
 .password-container {
     position: relative;
     display: flex;
-    justify-content: space-between;
+    justify-content:space-between;
     align-items: center;
     width: 100%;
 }
 
 
+
 .password-container .toggle-password {
     position: absolute;
-    right: 25px;
+    right: 20%;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.password-container .toggle-password1 {
+    position: absolute;
+    right: 20%;
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
@@ -121,49 +132,110 @@ input {
     width: 100%;
     margin-top: 15px;
 }
-
-
-/* Responsive Design */
-@media (max-width: 768px) {
+/* Suppression de l'image du docteur sur tablette et mobile */
+@media (max-width: 1024px) {
     .container {
-        flex-direction: column; /* Affiche les sections en colonne */
-        width: 90%; /* Prend presque toute la largeur */
-        align-items: center; /* Centre le contenu */
+        flex-direction: column;
+        align-items: center;
         justify-content: center;
+        width: 90%;
     }
 
     .left-section {
-        width: 100%; /* Largeur max pour ne pas dépasser */
-        padding: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .doctor-image {
-        max-width: 80%; /* Évite que l’image prenne trop de place */
-        height: auto;
+        display: none; /* Cache l'image */
     }
 
     .right-section {
-        width: 100%; /* S'assure que le formulaire prend toute la largeur */
-        padding: 30px;
+        width: 100%;
+        padding: 20px;
         display: flex;
         flex-direction: column;
-        align-items: center; /* Centre le formulaire */
-        justify-content: center;
-        text-align: center;
+        align-items: center;
     }
 
     .signup-form {
         width: 100%;
-        max-width: 350px; /* Taille maximale du formulaire */
+        max-width: 400px; /* Évite que le formulaire soit trop large */
     }
 
     .signup-form input,
-    .signup-form select,
-    .signup-form button {
-        width: 100%; /* Assure que les champs prennent toute la largeur */
+    .signup-form select {
+        width: 100%; /* Rend les champs plus adaptés */
         max-width: 300px;
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .btn-submit {
+        width: 100%;
+        max-width: 300px;
+        font-size: 14px;
+        padding: 10px;
     }
 }
+
+/* Ajustement pour les téléphones */
+@media (max-width: 600px) {
+    .container {
+        width: 80%;
+    }
+
+    .signup-form {
+        max-width: 350px;
+    }
+
+    .signup-form input,
+    .signup-form select {
+        max-width: 250px;
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .btn-submit {
+        max-width: 250px;
+        font-size: 12px;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 1024px) and (max-height: 600px) {
+    body {
+        overflow-y: auto; /* Active le scroll vertical uniquement si nécessaire */
+        height: auto; /* Permet au body de s'étendre si besoin */
+    }
+
+    .container {
+        min-height: 100vh; /* Minimum : toute la hauteur de l'écran */
+        height: auto; /* Permet au container de s'étendre si besoin */
+        overflow: visible; /* Ne cache pas ce qui dépasse */
+    }
+
+    .signup-form {
+        height: auto; /* Laisse le formulaire s’étendre */
+        max-height: none; /* Supprime toute limitation de hauteur */
+    }
+}
+@media(max-width: 390px) {
+  .password-container .toggle-password {
+
+    right: 10%;
+  
+  }
+  .password-container .toggle-password1 {
+
+    right: 10%;
+  
+  }
+}
+@media(min-width: 1200px) {
+    .password-container .toggle-password {
+  
+      right: 8%;
+    
+    }
+    .password-container .toggle-password1 {
+  
+      right: 8%;
+    
+    }
+  }
